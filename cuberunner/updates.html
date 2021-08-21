@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts - Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .update-title {
+            font-size: 2.75rem;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+        }
+
+        .update-subtitle {
+            color: var(--clr-gray);
+            padding-top:0px;
+            margin-top:0px;
+        }
+
+        ul {
+            font-size: 1.1225rem;
+            margin-left: 2rem;
+        }
+
+        li ul {
+            margin-left: 2rem;
+        }
+    </style>
+
+    <script src="script.js" defer></script>
+    <link rel="icon" href="favicon.ico">
+    <title>CubeRunner | Update History</title>
+</head>
+<body>
+    <!-- Nav Bar -->
+    <header>
+        <nav class="navbar">
+            <h1><a href="home.html">CubeRunner</a></h1>
+            
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+
+            <ul class="navbar-links">
+                <li><a href="#">Update History</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="eula.html">EULA</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="home.html#playgame"><button>Play Game</button></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Content -->
+    <section class="container">
+        <h2>Update History</h2>
+        <p>This page contains the changelogs for every version of CubeRunner.</p>
+        <hr>
+
+        <!-- RELEASE 1.0 -->
+        <h4 class="update-title">Release 1.0</h4>
+        <h6 class="update-subtitle">Aug 21, 2021</h6>
+        <ul>
+            <li>Power-ups can now only spawn in rows with two or more gaps</li>
+            <li>Changed the Death / End Game animation
+                <ul>
+                    <li>Crashing now destroys and pushes the collided obstacle back, preventing the crashed player from clipping into it</li>
+                    <li>There is now a Skip button during the Crashing animation</li>
+                    <li>The Cube Gibs in the Game Over screen have reduced speed and variation in placement</li>
+                </ul>
+            </li>
+            <li>First-time players are now prompted to check out the Tutorial section upon clicking Play</li>
+            <li>Graphics settings gibbing values have changed slightly</li>
+            <li>Main Menu now has post-processing disabled until the Play button is clicked</li>
+            <li>Small performance upgrade from disabling Canvas Raycast Targets</li>
+        </ul>
+        <hr>
+
+
+        <!-- BETA 1.3 -->
+        <h4 class="update-title">Beta 1.3</h4>
+        <h6 class="update-subtitle">May 7, 2021</h6>
+        <h6>Gameplay</h6>
+        <ul>
+            <li>Upgrade System has been added.
+                <ul>
+                    <li>Every power-up can now be upgraded.</li>
+                    <li>Upgrades cost Bits and enhance the power-up's abilities.</li>
+                    <li>Most power-ups (all except for Decimate and Align) have two distinct paths to choose from.</li>
+                    <li>Every path has four levels of upgrade.</li>
+                </ul>
+            </li>
+            <li>Some balance changes to the difficulties' values.
+                <ul>
+                    <li>Most notable: Impossible difficulty is now slower, but obstacles are packed more densely.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h6>Technical</h6>
+        <ul>
+            <li>
+                Binary save system has been added.
+                <ul>
+                    <li>Saves are now stored in a .dat file instead of using the built-in Unity PlayerPrefs.</li>
+                    <li>This fixes the issue that caused the stats to reset on game version update when playing the browser version. Desktop was and still is unaffected.
+                        <ul>
+                            <li>Unfortunately, old stats from Beta 1.2 browser version will not carry over as it is still on the old PlayerPrefs system, but everything Beta 1.3 onward will.</li>
+                            <li>Please note, due to how the system works, that clearing browser cache will still clear the save files for the browser version! Again, the desktop version is unaffected.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Changed Bits to have sphere colliders.</li>
+            <li>Made the Bits sound effect quieter.</li>
+            <li>Fixed a mostly unknown bug with row distance calculation which may have caused some moves to be impossible.</li>
+            <li>Fixed button click sound effects not working for browser version.</li>
+            <li>Fixed a bug that caused the player to sometimes physically collide with Bits.</li>
+            <li>Fixed a bug that caused the default difficulty to be Normal in the Main Menu, but Easy while running.</li>
+        </ul>
+        <hr>
+
+
+        <!-- BETA 1.2 -->
+        <h4 class="update-title">Beta 1.2</h4>
+        <h6 class="update-subtitle">Mar 26, 2021</h6>
+        <h6>New Features</h6>
+        <ul>
+            <li>Added new Power-ups:
+                <ul>
+                    <li>Guidelines
+                        <ul>
+                            <li>Active type, timed duration</li>
+                            <li>Sends out a guiding beam that highlights obstacles in front of you</li>
+                        </ul>
+                    </li>
+                    <li>Align
+                        <ul>
+                            <li>Active type, timed duration</li>
+                            <li>Overrides movement to snap to certain positions</li>
+                        </ul>
+                    </li>
+                    <li>Decimate
+                        <ul>
+                            <li>Instant use</li>
+                            <li>Randomly removes an obstacle each from the next few rows</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h6>Changes</h6>
+        <ul>
+            <li>Performance Improvements
+                <ul>
+                    <li>Materials' shaders have been changed to Unlit or Simple Lit</li>
+                </ul>
+            </li>
+            <li>All music tracks' loudness levels have been matched to each other</li>
+            <li>All SFX are now Mono</li>
+            <li>Edited a music track that previously took a while to start</li>
+            <li>Colorblind Mode has been removed, and its features are now added by default
+                <ul>
+                    <li>The sole feature was an indicator on the top right corner to reveal the upcoming power-up, since they
+                        are distinguished by color</li>
+                </ul>
+            </li>
+            <li>The Tutorial has been updated for the new power-ups</li>
+            <li>Credits have been updated</li>
+        </ul>
+        
+        <h6>Bugs Fixed</h6>
+        <ul>
+            <li>Bits SFX didn't actively update with volume slider</li>
+            <li>Powerups could still be activated shortly after crashing</li>
+            <li>Simultaneously having a power-up disappear and getting a new one caused glitched UI</li>
+            <li>SFX continued while paused</li>
+            <li>Pausing and resuming in Time Dilation caused music to play</li>
+        </ul>
+        <hr>
+
+        <!-- BETA 1.1 -->
+        <h4 class="update-title">Beta 1.1</h4>
+        <h6 class="update-subtitle">Feb 28, 2021</h6>
+        <h6>New Features</h6>
+        <ul>
+            <li>Added Bits
+                <ul>
+                    <li>An in-game currency to be picked up during runs. Uses for this are coming soon.</li>
+                    <li>Bits spawn in various patterns on the field, and can be picked up by running into it.</li>
+                    <li>Harder difficulties have a higher chance of spawning Bits, and they are also worth more when picked up.
+                        <ul>
+                            <li>Currently, the multipliers are:
+                                <ul>
+                                    <li>Easy: x1</li>
+                                    <li>Normal: x2</li>
+                                    <li>Hard: x3</li>
+                                    <li>Impossible: x4</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Quality of Life features
+                <ul>
+                    <li>On Desktop, pressing [Esc] during a run now brings up the pause menu.
+                        <ul>
+                            <li>Please note that while this works in the Web version, it is overridden when in fullscreen.</li>
+                        </ul>
+                    </li>
+                    <li>On Desktop, pressing [Space] in the menu now starts the game.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h6>Changes</h6>
+        <ul>
+            <li>Hardened has been rebalanced.
+                <ul>
+                    <li>Now has a time limit before it expires. Activates instantly upon pick-up.</li>
+                    <li>When impacting between two obstacles, Hardened now works properly.
+                        <ul>
+                            <li>Before, the shield would absorb one impact, but the other would cause the game to end.</li>
+                            <li>This was actually a bug, not intended behavior.</li>
+                        </ul>
+                    </li>
+                    <li>The UI color for Hardened has also been changed.</li>
+                </ul>
+            </li>
+            <li>Score has now been replaced with 'Distance'
+                <ul>
+                    <li>Measured in meters</li>
+                    <li>Before, Score increased independently of the speed. Rather, it depended on a separate variable per
+                        difficulty.</li>
+                    <li>Now, Distance is entirely dependent on the forward speed of the player.</li>
+                    <li>It also increases notably faster than the previous Score system.</li>
+                </ul>
+            </li>
+            <li>Game Progression has been tweaked in response to the new Distance system
+                <ul>
+                    <li>Game Progression is in charge of speeding up the run as it goes.</li>
+                    <li>Hopefully there is little to no difference visible to the player.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h6>Bugs Fixed</h6>
+        <ul>
+            <li>Fixed a bug where pausing the game as Time Dilation ended would yield in the game resuming while paused.</li>
+            <li>Hardened can now absorb multiple simultaneous impacts. (See the Hardened entry under Changes for more info.)
+            </li>
+            <li>Fixed an audio bug with the Power-up pickup sound.</li>
+            <li>Fixed a graphical bug with the Photosensitvity warning.</li>
+        </ul>
+        <hr>
+
+        <!-- BETA 1.0 -->
+        <h4 class="update-title">Beta 1.0</h4>
+        <h6 class="update-subtitle">Feb 9, 2021</h6>
+        <h6>Features</h6>
+        <ul>
+            <li>Infinite Runner</li>
+            <li>4 Difficulties (Easy, Normal, Hard, Impossible)
+                <ul>
+                    <li>Differences in Speed, Spacing, Points, and Music</li>
+                </ul>
+            </li>
+            <li>Game Progression (Speed ramps up)</li>
+            <li>4 Power-Ups
+                <ul>
+                    <li>Blaster: Shoot down Obstacles</li>
+                    <li>Hardened: Survive one impact</li>
+                    <li>Time Dilation: Slow down time temporarily</li>
+                    <li>Compression: Halve your size temporarily</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Fix for Chrome Transition Load bug -->
+    <script> </script>
+</body>
+</html>
